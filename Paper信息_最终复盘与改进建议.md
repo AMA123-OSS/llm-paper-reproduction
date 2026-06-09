@@ -1,10 +1,10 @@
-# Paper 信息：YUV 可逆对抗攻击最终复盘与改进建议
+﻿# Paper 信息：YUV 可逆对抗攻击最终复盘与改进建议
 
 日期：2026-06-09  
 论文：`Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`  
 作者：Yucheng Fan, Zhaoxia Yin*, Jiawei Chen, Wanli Lyu  
 期刊：Neurocomputing, 2025, 131088  
-本地代码目录：`D:\大模型论文复现\YUV_Reversible_Attack_2025`
+本地代码目录：`D:\大模型论文复现\yuv-reversible-attack-reproduction`
 
 ## 复现范围说明
 

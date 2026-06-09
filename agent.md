@@ -4,11 +4,11 @@ This file contains stable project guidance for AI coding agents working in `D:\�
 
 ## Project Authority
 
-- The current main project is the YUV reversible adversarial attack reproduction selected in `最后确认文件.md`.
+- The current main project is the YUV reversible adversarial attack reproduction described in the root `README.md` and final reports.
 - Target paper: `Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`.
 - Target repository: `edu-yinzhaoxia/Efficient-and-Transferable-Reversible-Adversarial-Attacks-Utilizing-YUV-Color-Space`.
-- Target local code directory: `YUV_Reversible_Attack_2025/`.
-- Older Rt-LRM/LCO files and folders are historical candidate materials. Do not use their commands, metrics, or assumptions unless the user explicitly switches back to that project.
+- Target local code directory: `yuv-reversible-attack-reproduction/`.
+- This repository has been cleaned to keep the YUV reproduction code, curated experiment scripts/results, and final reports. Do not reintroduce old candidate-paper materials unless the user explicitly asks.
 
 ## Tech Stack
 
@@ -24,7 +24,7 @@ This file contains stable project guidance for AI coding agents working in `D:\�
 
 ## Environment Rules
 
-- Prefer a project-local virtual environment under `YUV_Reversible_Attack_2025/.venv`.
+- Prefer a project-local virtual environment under `yuv-reversible-attack-reproduction/.venv`.
 - Confirm `python` points to a real Python installation, not only the Microsoft Store launcher.
 - Confirm CUDA with `torch.cuda.is_available()` before GPU experiments.
 - Use the official PyTorch install selector when installing or changing CUDA wheels.
@@ -103,4 +103,3 @@ python -c "import torch, torchvision, PIL, cv2, skimage, numpy; print('deps ok')
 - Do not use generated adversarial examples against third-party, online, commercial, or unauthorized recognition systems.
 - Do not add code that automates attacks against external services.
 - Do not store credentials or private data in the repository.
-

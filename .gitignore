@@ -14,8 +14,7 @@ __pycache__/
 
 # Build and runtime outputs
 outputs/
-runs/
-**/runs/
+**/output/
 **/output/rae/
 **/wheelhouse/
 checkpoints/
@@ -31,6 +30,11 @@ datasets/
 *.bin
 *.safetensors
 *.log
+
+# Keep curated reproduction records in runs/, but ignore heavy generated artifacts there.
+**/runs/**/ORI_IMG/
+**/runs/**/output/
+**/runs/**/*.log
 
 # Archives
 *.zip

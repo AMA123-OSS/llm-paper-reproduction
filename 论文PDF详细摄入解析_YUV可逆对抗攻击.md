@@ -1,4 +1,4 @@
-# 论文 PDF 详细摄入解析：YUV 可逆对抗攻击
+﻿# 论文 PDF 详细摄入解析：YUV 可逆对抗攻击
 
 日期：2026-06-09  
 论文：`Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`  
@@ -6,7 +6,7 @@
 期刊：`Neurocomputing 652 (2025) 131088`  
 DOI：`10.1016/j.neucom.2025.131088`  
 接收与上线：2025-07-23 接收，2025-07-24 在线发表  
-本地复现目录：`D:\大模型论文复现\YUV_Reversible_Attack_2025`
+本地复现目录：`D:\大模型论文复现\yuv-reversible-attack-reproduction`
 
 ## 1. 摄入结论总览
 
@@ -65,7 +65,7 @@ DOI：`10.1016/j.neucom.2025.131088`
 
 ### 3.2 YUV 转换公式与代码核对点
 
-PDF 第 5 页 Eq.13/Eq.14 给出 YUV 与 RGB 的转换公式。本地代码实现位于 `YUV_Reversible_Attack_2025\utils.py`：
+PDF 第 5 页 Eq.13/Eq.14 给出 YUV 与 RGB 的转换公式。本地代码实现位于 `yuv-reversible-attack-reproduction\utils.py`：
 
 ```python
 yuv[:, :, 0] = np.round(0.299 * R + 0.587 * G + 0.114 * B)
