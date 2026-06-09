@@ -1,0 +1,52 @@
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+
+# Results and experiment data
+experiment_data/
+rh_single_agent_results/
+rh_multi_agent_results/
+rh_singleagent_parallel_results/
+rh_multiagent_results_ab_test/
+child/
+results_visiualize/
+Toxicity_Fig/
+
+# Data files (not source code)
+*.json
+*.jsonl
+!optimization/experiment_data.json
+!reward_hacking/corporations.json
+
+# Text data files
+reward_hacking/*.txt
+
+# Images and plots
+*.pdf
+*.png
+*.svg
+*.jpg
+*.jpeg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/

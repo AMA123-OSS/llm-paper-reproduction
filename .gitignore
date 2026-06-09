@@ -1,0 +1,39 @@
+# Local Git/account notes
+github.txt
+
+# Python virtual environments and caches
+.venv*/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build and runtime outputs
+outputs/
+runs/
+checkpoints/
+logs/
+
+# Model and dataset artifacts
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Editors and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

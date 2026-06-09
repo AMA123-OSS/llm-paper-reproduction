@@ -1,0 +1,48 @@
+# Model weights / large binaries
+/llama3
+/Qwen
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Sensitive config
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Coverage / test artifacts
+.coverage
+.pytest_cache/
+htmlcov/
