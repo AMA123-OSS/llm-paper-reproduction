@@ -1,0 +1,15 @@
+﻿section,item,value,note
+stage7,stage7_steps4_iter5,"success=10/10, ssim=0.977174, psnr=41.6998, avg_elapsed_s=2.35",10-image reproduction
+stage7,stage7_steps20_iter50,"success=10/10, ssim=0.976744, psnr=41.5805, avg_elapsed_s=4.59",10-image reproduction
+stage8,rgb_mi_fgsm,"success=10/10, ssim=0.975990, psnr=42.4469, l2=4.0510",Y/UV ablation
+stage8,y_only,"success=10/10, ssim=0.991483, psnr=46.5931, l2=2.5893",Y/UV ablation
+stage8,y_uv_embed,"success=10/10, ssim=0.977176, psnr=41.6994, l2=4.7156",Y/UV ablation
+stage9,ensemble_y_uv -> densenet161,"success_vs_label=9/10, conditional=9/10",ensemble_member
+stage9,ensemble_y_uv -> googlenet,"success_vs_label=5/10, conditional=5/10",ensemble_member
+stage9,ensemble_y_uv -> inception_v3,"success_vs_label=10/10, conditional=10/10",ensemble_member
+stage9,ensemble_y_uv -> resnet50,"success_vs_label=4/10, conditional=2/8",held_out_black_box
+stage9,single_inception_y_uv -> densenet161,"success_vs_label=0/10, conditional=0/10",transfer_black_box
+stage9,single_inception_y_uv -> googlenet,"success_vs_label=0/10, conditional=0/10",transfer_black_box
+stage9,single_inception_y_uv -> inception_v3,"success_vs_label=10/10, conditional=10/10",white_box
+stage9,single_inception_y_uv -> resnet50,"success_vs_label=4/10, conditional=2/8",transfer_black_box
+stage10,error-free recovery,not verified,"missing prerequisites: T_flag_persisted, arithmetic_dictionary_persisted, compressed_bit_length_persisted, standalone_recovery_entry"
