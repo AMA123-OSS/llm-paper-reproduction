@@ -1,0 +1,31 @@
+﻿method,display_name,input_filename,label,output_image,output_exists,success,final_pred,max_iteration_used,elapsed_s,ssim,psnr,l2,linf,output_size_bytes
+rgb_mi_fgsm,RGB MI-FGSM baseline,0001_321.png,321,stage8_ablation\rgb_mi_fgsm\output\0001_321.png,True,1,325,2,1.93,0.944501,36.2021,8.0190,0.023529,187404
+rgb_mi_fgsm,RGB MI-FGSM baseline,0002_847.png,847,stage8_ablation\rgb_mi_fgsm\output\0002_847.png,True,1,408,0,0.46,0.984961,43.0014,3.6657,0.007843,173604
+rgb_mi_fgsm,RGB MI-FGSM baseline,0003_446.png,446,stage8_ablation\rgb_mi_fgsm\output\0003_446.png,True,1,748,0,0.45,0.977151,44.0780,3.2383,0.007843,110526
+rgb_mi_fgsm,RGB MI-FGSM baseline,0004_400.png,400,stage8_ablation\rgb_mi_fgsm\output\0004_400.png,True,1,577,0,0.46,0.983137,42.9402,3.6916,0.007843,161572
+rgb_mi_fgsm,RGB MI-FGSM baseline,0005_647.png,647,stage8_ablation\rgb_mi_fgsm\output\0005_647.png,True,1,438,0,0.46,0.984869,43.0539,3.6436,0.007843,166522
+rgb_mi_fgsm,RGB MI-FGSM baseline,0006_295.png,295,stage8_ablation\rgb_mi_fgsm\output\0006_295.png,True,1,690,0,0.47,0.994951,42.8599,3.7259,0.007843,209052
+rgb_mi_fgsm,RGB MI-FGSM baseline,0007_171.png,171,stage8_ablation\rgb_mi_fgsm\output\0007_171.png,True,1,268,0,0.46,0.977023,42.9710,3.6785,0.007843,152535
+rgb_mi_fgsm,RGB MI-FGSM baseline,0008_682.png,682,stage8_ablation\rgb_mi_fgsm\output\0008_682.png,True,1,442,0,0.45,0.967120,43.0343,3.6518,0.007843,148486
+rgb_mi_fgsm,RGB MI-FGSM baseline,0009_112.png,112,stage8_ablation\rgb_mi_fgsm\output\0009_112.png,True,1,185,0,0.45,0.984665,43.2322,3.5695,0.007843,159752
+rgb_mi_fgsm,RGB MI-FGSM baseline,0010_111.png,111,stage8_ablation\rgb_mi_fgsm\output\0010_111.png,True,1,604,0,0.43,0.961525,43.0958,3.6261,0.007843,142291
+y_only,Y-channel only,0001_321.png,321,stage8_ablation\y_only\output\0001_321.png,True,1,325,4,2.44,0.979480,38.8296,5.9258,0.043137,178193
+y_only,Y-channel only,0002_847.png,847,stage8_ablation\y_only\output\0002_847.png,True,1,408,0,0.53,0.994383,45.9954,2.5969,0.011765,162142
+y_only,Y-channel only,0003_446.png,446,stage8_ablation\y_only\output\0003_446.png,True,1,748,1,0.98,0.983552,45.1973,2.8469,0.019608,62034
+y_only,Y-channel only,0004_400.png,400,stage8_ablation\y_only\output\0004_400.png,True,1,887,0,0.58,0.995265,47.3924,2.2111,0.011765,151125
+y_only,Y-channel only,0005_647.png,647,stage8_ablation\y_only\output\0005_647.png,True,1,438,1,1.02,0.995058,47.2640,2.2440,0.019608,165271
+y_only,Y-channel only,0006_295.png,295,stage8_ablation\y_only\output\0006_295.png,True,1,294,0,0.51,0.998287,49.5252,1.7297,0.011765,208535
+y_only,Y-channel only,0007_171.png,171,stage8_ablation\y_only\output\0007_171.png,True,1,268,0,0.51,0.994262,48.2929,1.9934,0.011765,127214
+y_only,Y-channel only,0008_682.png,682,stage8_ablation\y_only\output\0008_682.png,True,1,442,0,0.52,0.991982,47.3010,2.2345,0.011765,113313
+y_only,Y-channel only,0009_112.png,112,stage8_ablation\y_only\output\0009_112.png,True,1,186,0,0.46,0.996425,48.8979,1.8592,0.011765,144742
+y_only,Y-channel only,0010_111.png,111,stage8_ablation\y_only\output\0010_111.png,True,1,725,0,0.49,0.986139,47.2349,2.2515,0.011765,134154
+y_uv_embed,Y-channel + UV embedding,0001_321.png,321,stage8_ablation\y_uv_embed\output\0001_321.png,True,1,325,4,7.07,0.961018,35.4704,8.7241,0.086275,192794
+y_uv_embed,Y-channel + UV embedding,0002_847.png,847,stage8_ablation\y_uv_embed\output\0002_847.png,True,1,408,0,1.42,0.985080,41.0459,4.5913,0.054902,178511
+y_uv_embed,Y-channel + UV embedding,0003_446.png,446,stage8_ablation\y_uv_embed\output\0003_446.png,True,1,748,1,2.27,0.977619,44.0068,3.2651,0.027451,92900
+y_uv_embed,Y-channel + UV embedding,0004_400.png,400,stage8_ablation\y_uv_embed\output\0004_400.png,True,1,887,0,1.26,0.989346,43.9813,3.2746,0.019608,163738
+y_uv_embed,Y-channel + UV embedding,0005_647.png,647,stage8_ablation\y_uv_embed\output\0005_647.png,True,1,438,1,2.35,0.988111,43.6764,3.3916,0.027451,169219
+y_uv_embed,Y-channel + UV embedding,0006_295.png,295,stage8_ablation\y_uv_embed\output\0006_295.png,True,1,294,0,1.46,0.972859,34.6085,9.6341,0.054902,216359
+y_uv_embed,Y-channel + UV embedding,0007_171.png,171,stage8_ablation\y_uv_embed\output\0007_171.png,True,1,268,0,1.20,0.987501,44.9444,2.9310,0.019608,155928
+y_uv_embed,Y-channel + UV embedding,0008_682.png,682,stage8_ablation\y_uv_embed\output\0008_682.png,True,1,442,0,1.19,0.983936,44.5500,3.0671,0.019608,146117
+y_uv_embed,Y-channel + UV embedding,0009_112.png,112,stage8_ablation\y_uv_embed\output\0009_112.png,True,1,186,0,1.13,0.990830,45.0369,2.8999,0.019608,156622
+y_uv_embed,Y-channel + UV embedding,0010_111.png,111,stage8_ablation\y_uv_embed\output\0010_111.png,True,1,725,0,1.38,0.935461,39.6733,5.3773,0.054902,160748

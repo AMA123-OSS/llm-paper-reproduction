@@ -15,17 +15,22 @@ __pycache__/
 # Build and runtime outputs
 outputs/
 runs/
+**/runs/
+**/output/rae/
+**/wheelhouse/
 checkpoints/
 logs/
 
 # Model and dataset artifacts
 data/
 datasets/
+**/ORI_IMG/
 *.pt
 *.pth
 *.ckpt
 *.bin
 *.safetensors
+*.log
 
 # Archives
 *.zip

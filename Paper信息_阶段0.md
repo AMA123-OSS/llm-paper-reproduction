@@ -1,165 +1,241 @@
-# Paper 信息与阶段 0 结论
+# Paper 信息与阶段 0 结论：YUV 可逆对抗攻击
 
-> 阶段：阶段 0  
-> 论文：`Red Teaming Large Reasoning Models`  
-> 本地 PDF：`D:\大模型论文复现\参考论文1.pdf`  
-> 说明：以下内容基于论文 PDF、论文文本抽取、本地代码核验和 GitHub 仓库核验。阶段 0 尚未复现实验结果，因为当前公开仓库代码与论文不匹配。
+阶段：阶段 0，材料归档与主线确认  
+生成日期：2026-06-09  
+当前项目主线：`Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`  
+目标代码目录名：`YUV_Reversible_Attack_2025`
 
-## 阶段 0 总结
+> 阶段 0 只完成材料核验、项目主线确认、代码目录结构核验和论文方法理解；不搭建环境、不运行实验。当前本地已存在 `YUV_Reversible_Attack_2025`，并已对照顶层代码文件做静态理解，但不能记录本地复现实验结果。
 
-当前 `Rt-LRM-main/` 不能直接复现 Rt-LRM 论文实验。代码仓库实现的是 LCO 防御框架，主要评估 ICRH、TGR、IOR、helpfulness；Rt-LRM 论文需要的是 30 个任务的 benchmark 数据与 Accuracy、ASR、OR 等指标评测。
+## 1. 阶段 0 核验结论
 
-因此，本阶段的“复现实验结果”结论是：Rt-LRM 官方实验尚不可复现，原因不是环境或命令问题，而是代码材料不匹配。
+- [x] 当前复现主线已确认为 2025 年 Neurocomputing 论文 `Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`。
+- [x] 最终选择依据来自 `D:\大模型论文复现\最后确认文件.md`。
+- [x] 旧 Rt-LRM/LCO 文件、目录和文档仅作为历史候选材料保留，不作为当前复现主线。
+- [x] 目标代码目录名确认为 `D:\大模型论文复现\YUV_Reversible_Attack_2025`。
+- [x] 代码仓库来源确认为 `https://github.com/edu-yinzhaoxia/Efficient-and-Transferable-Reversible-Adversarial-Attacks-Utilizing-YUV-Color-Space`。
+- [x] 本地代码目录 `D:\大模型论文复现\YUV_Reversible_Attack_2025` 已存在。
+- [x] 本地代码结构确认包含 `ORI_IMG`、`pytorch_grad_cam`、`EnModel.py`、`atk.py`、`calMetrics.py`、`embed_utils.py`、`helpers.py`、`reversible_attack_OURS.py`、`utils.py`。
+- [x] 本地 `ORI_IMG` 中已有 1000 张按 `序号_标签.png` 命名的样例图。
+- [x] 本地已有 `output`、`runs`、`.venv` 目录；环境可用性尚未测试，留到后续阶段。
+- [x] 当前阶段未运行本地实验，实验结果留到阶段 4 以后记录。
 
-## What：论文做了什么，解决了什么问题？
+## 2. 材料来源
 
-论文提出 Rt-LRM，一个用于 red teaming Large Reasoning Models 的统一 benchmark。它要解决的问题是：现有 LLM/LRM 评测通常只覆盖单一风险，例如 jailbreak、幻觉、CoT perturbation 或过度思考，缺少一个从推理过程出发、同时覆盖真实性、安全性和效率的统一评测框架。
+| 类型 | 当前状态 | 说明 |
+|---|---|---|
+| 论文列表 | 已核验 | 殷赵霞老师主页 2025 年条目列出该论文、DOI 和代码链接 |
+| DOI/论文页面 | 已核验 | ScienceDirect 条目显示期刊、卷号、文章号、摘要和 Highlights |
+| 代码仓库 | 已核验远程结构 | GitHub 仓库公开，Python 100%，README 较简略 |
+| 本地代码 | 已存在并核验顶层结构 | 目录为 `YUV_Reversible_Attack_2025`，无 `.git`，推测为 ZIP/复制方式获取 |
+| 旧 Rt-LRM/LCO 材料 | 保留但排除 | 不参与当前 YUV 项目命令、指标和结论 |
 
-论文重点解决三类可信性问题：
+## 3. Paper 信息
 
-- Truthfulness：模型在推理链被干扰、事实被误导、概念被伪装时是否还能保持事实正确。
-- Safety：模型在高风险或伪装成合理请求的场景中是否会输出有害、违法或滥用内容。
-- Efficiency：模型是否会被 distractor、递归陷阱或 prompt trigger 诱导过度推理，造成 token 浪费和延迟上升。
+### What：论文做了什么，解决了什么问题？
 
-## How：论文怎么做？
+论文提出一种基于 YUV 颜色空间的 error-free reversible adversarial attack 方法。它试图同时解决两个看似冲突的目标：
 
-论文构建了 30 个任务，覆盖两类 LRM 特有风险：
+1. 生成能误导图像分类模型的对抗样本，使未授权模型难以正确识别图像。
+2. 让授权方可以从对抗样本中无损恢复原始图像。
 
-- CoT-hijacking：直接干扰或劫持模型推理链。
-- Prompt-induced impacts：通过 prompt 上下文、无关干扰或诱导结构间接影响推理。
+已有可逆对抗攻击方法通常关注能否攻击成功、视觉质量是否足够好、是否能恢复原图，但对两个问题关注不足：
 
-任务结构如下：
+- **跨模型迁移性不足**：在一个白盒模型上成功生成的对抗样本，换到未知模型上可能失效。
+- **无效扰动较多**：生成的扰动可能被后续可逆嵌入覆盖，或被浪费在对攻击贡献较低的通道中。
 
-- T.1-T.9：Truthfulness 任务，指标主要是 Accuracy。
-- S.1-S.10：Safety 任务，指标主要是 ASR 和 Toxicity Score。
-- E.1-E.11：Efficiency 任务，指标主要是 OR 和 Reasoning Time。
+论文把无效扰动主要拆成两类：
 
-论文还在 26 个模型上做比较，包括 LRM、base LLM、开源模型和闭源模型，并分析训练策略，如 SFT-only、RL-only、SFT+RL 对可信性的影响。
+- **EOP：Embedding-Overwritten Perturbations**，可逆嵌入阶段覆盖了原本有用的攻击扰动。
+- **GRP：Generation-Redundant Perturbations**，攻击生成阶段产生了不必要或低效的冗余扰动。
 
-评测流程可以概括为：
+### How：怎么做的？
 
-1. 准备任务数据和攻击/诱导 prompt。
-2. 调用目标模型生成回答或推理输出。
-3. 对输出进行解析。
-4. 使用规则、GPT-4o evaluator 或 Perspective API 计算指标。
-5. 按模型、任务、训练策略和风险类型汇总结果。
+论文采用双策略设计：
 
-## Why：为什么这个方法能解决问题？
+1. **Y 通道攻击**  
+   将图像从 RGB 转换到 YUV 颜色空间，只在亮度通道 Y 上生成主要对抗扰动。论文和代码中涉及的攻击思路包括 YFGSM、YI-FGSM、YPGD、YMI-FGSM 等。
 
-Rt-LRM 的关键价值在于它把 LRM 的风险建模对象从“最终回答”推进到“推理过程本身”。这很重要，因为 LRM 的失败往往不是简单地答错，而是中间推理被带偏后仍然自洽地继续生成。
+2. **U/V 通道嵌入恢复信息**  
+   将恢复原图所需的信息嵌入 U/V 色度通道，而不是覆盖 Y 通道。这样能尽量保留已经生成的有效 Y 通道扰动。
 
-它能够解决现有评测不足，原因有三点：
+3. **集成模型生成扰动**  
+   使用多个预训练分类模型共同生成扰动，减少扰动对单个模型结构的过拟合。本地 `EnModel.py` 显示集成了 DenseNet161、Inception v3 和 GoogLeNet，并对三个模型输出做平均。
 
-第一，评测维度完整。Truthfulness、Safety、Efficiency 分别对应错误、有害和低效三类不同失败模式。一个模型可能真实但不安全，也可能安全但极度低效；单一指标无法覆盖这些差异。
+4. **CAM 注意力区域约束**  
+   本地 `reversible_attack_OURS.py` 显示主脚本使用 ResNet50 和 Grad-CAM++ 生成注意力掩码，只在 CAM 值高于阈值的区域替换 Y 通道扰动，以降低可见失真并提高扰动利用率。
 
-第二，攻击类型贴合 LRM。CoT-hijacking 和 prompt-induced impacts 都直接针对显式推理链和长思考机制，而不是只测试普通 jailbreak。这能暴露传统 LLM benchmark 看不到的推理诱导风险。
+代码层面的主流程为：
 
-第三，任务与指标可标准化。30 个任务配合 Accuracy、ASR、OR、Time 等指标，使不同模型、不同训练策略、不同任务类型可以横向比较，从而判断“推理能力增强是否真的提升可信性”。
+1. 设置随机种子。
+2. 自动选择 `cuda` 或 `cpu`。
+3. 加载 Inception v3 作为攻击后分类验证模型。
+4. 加载 `EnModel` 作为集成攻击模型。
+5. 读取 `./ORI_IMG/` 中的图像。
+6. 从文件名解析 ImageNet 标签，例如 `0001_281.png`。
+7. 生成 CAM 注意力掩码。
+8. 调用 `atk_MI_YFGSM` 生成 Y 通道扰动。
+9. 调用 `embed_main` 将 Y 通道差异信息嵌入 U/V 通道。
+10. 保存 RAE 到 `./output/rae/`，并用分类模型判断攻击是否成功。
 
-## Pros：优点
+### Why：为什么能够解决？（重要）
 
-- 覆盖面广：同时评估真实性、安全性和效率。
-- 针对性强：风险类型直接面向 LRM 的显式推理链，而不是普通文本生成。
-- 对比设计有价值：包含 LRM 与 base LLM 成对比较，有助于分离基础模型风险和推理机制新增风险。
-- 指标清晰：Accuracy、ASR、OR、Time 的方向明确，便于做表格和模型排名。
-- 实验规模较大：论文报告覆盖 26 个模型，有利于观察模型家族和训练策略趋势。
-- 强调效率风险：把 overthinking 作为可信性问题纳入 benchmark，这是 LRM 部署中很实际的问题。
+这篇论文的关键逻辑是“通道分工”与“扰动利用率提升”。
 
-## Cons：不足与可能改进方案
+1. **Y 通道承载亮度结构，对分类模型更关键**  
+   图像分类模型往往依赖边缘、纹理、形状和亮度结构等信息。YUV 中的 Y 通道更集中地表达亮度和结构信息，因此把扰动集中在 Y 通道，理论上比在 RGB 或所有 YUV 通道平均生成扰动更高效。
 
-### 不足 1：当前可复现性受限
+2. **U/V 通道承载色度信息，适合放恢复信息**  
+   U/V 通道对人眼和分类判别的影响相对不同。把恢复所需信息放到 U/V 中，可以避免直接覆盖 Y 通道的有效攻击扰动，从机制上减少 EOP。
 
-本地链接仓库没有提供 Rt-LRM 的 30 任务数据和 toolbox，而是 LCO 代码。这导致现阶段无法直接复现论文结果。
+3. **攻击扰动和恢复信息被解耦**  
+   传统可逆对抗攻击容易发生“先生成扰动，再嵌入恢复信息时把扰动破坏掉”的问题。该方法让 Y 通道主要负责攻击，U/V 通道主要负责恢复信息，从流程设计上把两个目标拆开处理。
 
-改进方案：
+4. **减少 GRP，提高每单位扰动的有效性**  
+   只在 Y 通道生成扰动，减少了在色度通道中产生低效扰动的机会。这能减少无效计算和无效修改，提高攻击速度与视觉质量。
 
-- 优先获取官方 supplementary material 或联系作者确认真实代码仓库。
-- 如果官方材料不可得，按论文 Table 2 自建最小复现版 toolbox。
-- 先实现 T/S/E 各 1 个任务，验证数据结构、模型接口和指标计算，再扩展到 30 个任务。
+5. **集成模型降低白盒过拟合**  
+   如果扰动只针对一个模型，可能只是抓住了该模型的局部脆弱性。多个模型共同参与梯度或输出融合，能逼迫扰动学习更通用的错误诱导方向，因此更可能迁移到未知模型。
 
-### 不足 2：自动 evaluator 可能引入偏差
+6. **CAM 区域约束让扰动集中在关键区域**  
+   CAM 高响应区域通常与模型判别相关。优先在这些区域引入 Y 通道扰动，有助于在较少修改下产生更强攻击效果。
 
-Safety 和部分 Truthfulness 依赖 GPT-4o evaluator。不同 evaluator、不同版本模型或 prompt 模板可能导致标签漂移。
+### Pros：优点
 
-改进方案：
+- **目标清晰**：同时追求攻击成功和原图无损恢复。
+- **机制可解释**：Y 负责攻击、U/V 负责嵌入，通道职责明确。
+- **更重视迁移性**：引入集成攻击策略，而不是只看白盒成功率。
+- **工程复现成本适中**：基于 PyTorch、torchvision、少量图片即可先跑通。
+- **适合 RTX 4060**：不需要大模型训练，不依赖 LLM API，不需要多卡。
+- **指标体系完整**：可围绕攻击成功率、PSNR、SSIM、L2、Linf、恢复误差和运行时间做实验。
 
-- 加入 evaluator ensemble，例如 GPT-4o、Claude、规则检查混合投票。
-- 每个 safety 任务人工抽检至少 20 条样本。
-- 保存 evaluator prompt、模型版本和判定原文，保证结果可追溯。
+### Cons：不足之处以及可能改进方案（重要）
 
-建议测试：
+#### 不足 1：代码 README 过简，复现门槛被转移到读源码
 
-- 随机抽取 S.1、S.4、S.8 各 20 条输出。
-- 分别用 GPT-4o、Claude 和人工标签判定 ASR。
-- 计算一致率、分歧样本类型和最终 ASR 波动。
+当前仓库 README 只有项目标题，缺少依赖、运行命令、输入样例说明、预期输出和恢复验证说明。
 
-### 不足 3：OR 指标受 tokenization 和输出风格影响
+可能改进：
 
-不同模型的 tokenizer、推理模板、拒答格式会影响 token 长度，进而影响 Overthinking Rate。
+- 补充 `requirements.txt`。
+- 增加 `README_reproduce.md`。
+- 增加 `scripts/smoke_test.ps1`。
+- 增加命令行参数，减少手改脚本。
 
-改进方案：
+测试方案：
 
-- 同时报告 OR、reasoning token ratio、wall-clock time。
-- 对同一模型使用固定 decoding 参数。
-- 对不同 tokenizer 做归一化或基于字符/句子级辅助统计。
+- 阶段 1-4 完成后，记录从空环境到单图输出所需全部命令。
+- 用一台干净 Windows 环境复跑，检查文档是否足够。
 
-建议测试：
+#### 不足 2：硬编码较多，输入格式脆弱
 
-- 对 E.1、E.9、E.11 使用同一批 prompt。
-- 分别统计 token 长度、字符长度、句子数和耗时。
-- 比较 OR 结论是否在多种统计方式下稳定。
+远程主脚本中输入目录为 `./ORI_IMG/`，输出目录为 `./output/rae/`，并从文件名按下划线解析标签。`embed_main` 中也存在 `299*299` 和双层循环等尺寸假设。
 
-### 不足 4：Benchmark 主要是诊断，不提供防御闭环
+可能改进：
 
-Rt-LRM 能暴露问题，但论文主体不是防御方法。发现 ASR 或 OR 高之后，还需要额外设计缓解方案。
+- 增加 `--input-dir`、`--output-dir`、`--image-size`、`--steps`、`--max-iteration`。
+- 增加文件名合法性检查。
+- 增加图片尺寸自动 resize 或显式报错。
 
-改进方案：
+测试方案：
 
-- 将当前 LCO 代码作为防御参考，测试约束生成、候选采样、安全投票是否能降低 Rt-LRM 的 ASR 或 OR。
-- 加入 early-stop overthinking monitor，在模型输出过长或进入递归模式时中止。
-- 对高风险 safety prompt 增加外部 guard model 或 inference-time safety prompt。
+- 使用正确命名 `0001_281.png` 和错误命名 `cat.png` 分别测试。
+- 使用 `299x299` 和非 `299x299` 图片分别测试。
+- 验证脚本能给出清晰错误提示，而不是中途崩溃。
 
-建议测试：
+#### 不足 3：集成模型显存占用较高
 
-- 选择 S.1/S.8/E.11 小样本。
-- 对比 base prompt、safety prompt、LCO-style constraint prompt、external guard 四种方案。
-- 观察 ASR、OR、Accuracy 是否同时改善，避免只靠拒答降低风险。
+`EnModel.py` 集成 DenseNet161、Inception v3、GoogLeNet。对 RTX 4060 来说可跑，但显存和首次下载成本都更高。
 
-### 不足 5：模型版本和 API 更新会影响复现
+可能改进：
 
-闭源模型会更新，论文中的 26 个模型版本未必都能在当前日期完全一致调用。
+- 增加单模型模式。
+- 增加轻量集成模式，例如只用 Inception v3 + GoogLeNet。
+- 增加 `torch.no_grad()` 用于非梯度评估环节。
+- 记录显存峰值。
 
-改进方案：
+测试方案：
 
-- 每次运行记录模型名、API provider、调用日期、temperature、max_tokens、系统提示和版本字段。
-- 对关键结论使用至少一个开源模型复现，降低闭源版本漂移影响。
-- 用小样本重复运行检查指标方差。
+| 设置 | 图片数 | steps | 预期记录 |
+|---|---:|---:|---|
+| 单模型 Inception v3 | 1 | 5 | 冒烟测试速度和成功率 |
+| 轻量双模型 | 1 | 5 | 显存与迁移性折中 |
+| 原始三模型集成 | 1 | 20 | 接近论文方法 |
 
-## 当前代码能提供的辅助价值
+#### 不足 4：恢复验证入口不够显式
 
-虽然当前 `Rt-LRM-main/` 不能直接复现 Rt-LRM，但它可以服务后续改进实验：
+论文强调 error-free recovery，但主脚本更偏生成 RAE 和攻击成功判断。后续应明确恢复函数入口，并做像素级恢复测试。
 
-- `output-refinement/filtering.py` 可参考多轮生成、LCO、baseline 和结果保存方式。
-- `output-refinement/benchmarks/` 可参考 MMLU/GSM8K 能力保持测试。
-- `policy-refinement/` 可参考 ToolEmu、ICRH 检测、helpfulness 评估和 agent defense baseline。
-- `toolemu/agents/MyAgent.py` 可参考 population、fitness、crossover、mutation、vote 的 LCO 实现。
+可能改进：
 
-这些代码适合作为“防御方法参考”，不适合作为“Rt-LRM benchmark 官方实现”。
+- 新增 `restore_image.py`。
+- 新增 `verify_recovery.py`。
+- 输出恢复图，并比较原图与恢复图最大绝对误差。
 
-## 阶段 0 后续建议
+测试方案：
 
-下一阶段不建议直接运行 LCO 大实验来冒充 Rt-LRM 复现。更合理的推进方式是：
+- 对 1 张图做恢复，记录最大像素差。
+- 对 10 张图做批量恢复，记录恢复失败样本。
+- 如果误差不为 0，排查 PNG/JPEG 保存、RGB/YUV 转换、浮点量化和嵌入容量。
 
-1. 继续寻找 Rt-LRM 官方数据和 toolbox。
-2. 若不可得，建立 `rt_lrm_minimal/` 最小复现项目。
-3. 先实现 3 个任务：T.1、S.1、E.11。
-4. 跑 1 个 base LLM 与 1 个 LRM 的小样本实验。
-5. 生成 Accuracy、ASR、OR 的最小结果表，再决定是否扩展任务。
+#### 不足 5：论文级结论需要更多数据支撑
 
-## 阶段 0 状态
+阶段 0 还没有本地代码和实验环境，因此不能给出本机攻击成功率、PSNR、SSIM 或恢复误差。即便阶段 4 单图跑通，也只能说明流程可运行，不能代表完整论文复现。
 
-- [x] 已完成材料核验。
-- [x] 已完成论文与代码差异判断。
-- [x] 已完成 Paper 信息整理。
-- [x] 已明确当前实验复现阻塞点。
-- [x] 已形成下一阶段建议路线。
+可能改进：
+
+- 阶段 7 使用 10 张图做小规模可复查结果。
+- 阶段 8 做 Y 通道与 UV 嵌入消融。
+- 阶段 9 做迁移性评估。
+- 阶段 10 做恢复验证。
+
+讨论用实验表模板：
+
+| 实验 | 图片数 | 模型 | steps | 成功率 | PSNR | SSIM | 恢复最大误差 | 结论 |
+|---|---:|---|---:|---:|---:|---:|---:|---|
+| 阶段 4 单图冒烟 | 1 | EnModel 生成 / Inception v3 验证 | 20 | 1/1 | 35.7848 | 0.961871 | NA | 流程跑通 |
+| 阶段 7 小规模 | 10 | EnModel 生成 / Inception v3 验证 | 4 / 20 | 10/10；10/10 | 41.6998；41.5805 | 0.977174；0.976744 | NA | 低成本与近默认参数均跑通 |
+| 阶段 8 消融 | 10 | RGB / Y-only / Y+UV | 4 | 10/10；10/10；10/10 | 42.4469；46.5931；41.6994 | 0.975990；0.991483；0.977176 | NA | Y-only 质量最好，UV 嵌入带来额外失真 |
+| 阶段 9 迁移性 | 10 | 单 Inception / EnModel 生成，4 模型测试 | 4 | 见迁移表 | NA | NA | NA | 集成提升成员模型迁移，ResNet50 未见提升 |
+
+阶段 8 补充结论：在当前 10 图小样本上，Y-only 组以最高 PSNR/SSIM 和最低 L2 达到同样成功率，支持“减少 GRP”的方向性现象；Y+UV 组没有出现成功率下降，但相对 Y-only 有明显质量损失，说明可逆嵌入存在额外失真成本。恢复最大误差仍为 `NA`，需阶段 10 验证。
+
+阶段 9 补充结论：单 Inception 生成在 Inception v3 白盒上为 `10/10`，但迁移到 DenseNet161/GoogLeNet 为 `0/10`；EnModel 集成生成在 DenseNet161 为 `9/10`、GoogLeNet 为 `5/10`，显示集成生成能提升成员模型覆盖。held-out ResNet50 上两者条件成功率均为 `2/8`，当前小样本不能证明集成生成提升未见模型迁移性。
+
+## 4. 阶段 0 是否复现实验？
+
+没有。
+
+原因：
+
+1. 阶段 0 的计划目标是材料归档与主线确认，不是代码获取和实验运行。
+2. 阶段 0 只做静态核验，虽然本地代码已存在，但尚未按阶段 2 验证 Python/CUDA 依赖。
+3. 模型权重尚未下载或验证。
+4. 主脚本默认会遍历 `ORI_IMG` 中 1000 张图片，未降载前不适合作为阶段 0 操作。
+
+阶段 0 可给出的“实验相关结论”是：
+
+- 本地仓库具备可复现实验入口 `reversible_attack_OURS.py`。
+- 本地源码显示主流程会读取 `./ORI_IMG/`，生成 RAE 并保存到 `./output/rae/`。
+- 本地源码显示当前默认攻击函数为 `atk_MI_YFGSM`，默认集成模型为 DenseNet161、Inception v3、GoogLeNet。
+- 本地数值结果必须等阶段 4 以后产生。
+
+## 5. 下一阶段入口
+
+阶段 1 应完成：
+
+- 记录本地代码来源：当前目录无 `.git`，应补充 ZIP/复制来源说明。
+- 确认仓库顶层文件存在，当前已静态核验通过。
+- 确认 `runs` 和 `output\rae` 已存在。
+- 记录下载方式、下载时间、commit 或 ZIP 文件信息；若无法获得 commit，则记录文件时间戳和获取方式。
+
+阶段 1 完成后，才能进入阶段 2 环境搭建。
+
+## 6. 参考来源
+
+- 殷赵霞老师论文列表：`https://edu-yinzhaoxia.github.io/publications/`
+- ScienceDirect 论文页面：`https://www.sciencedirect.com/science/article/abs/pii/S0925231225017606`
+- DOI：`https://doi.org/10.1016/j.neucom.2025.131088`
+- GitHub 代码仓库：`https://github.com/edu-yinzhaoxia/Efficient-and-Transferable-Reversible-Adversarial-Attacks-Utilizing-YUV-Color-Space`
+- 本地主入口源码：`D:\大模型论文复现\YUV_Reversible_Attack_2025\reversible_attack_OURS.py`
+- 本地集成模型源码：`D:\大模型论文复现\YUV_Reversible_Attack_2025\EnModel.py`

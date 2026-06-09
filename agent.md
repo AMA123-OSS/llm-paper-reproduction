@@ -1,102 +1,106 @@
 # Agent Rules
 
-This file contains stable project guidance for AI coding agents working in this workspace. Do not put one-off task requests, temporary status, API keys, private credentials, or rapidly changing experiment results here.
+This file contains stable project guidance for AI coding agents working in `D:\大模型论文复现`. Do not put one-off user requests, temporary status, private credentials, rapidly changing experiment results, or copied third-party documentation here.
 
-## Project Context
+## Project Authority
 
-- The workspace root is `D:\大模型论文复现`.
-- The reference paper PDF is `参考论文1.pdf`, titled `Red Teaming Large Reasoning Models`.
-- The URL file points to `https://github.com/edu-yinzhaoxia/Rt-LRM`.
-- The downloaded code directory is `Rt-LRM-main/`.
-- The current code in `Rt-LRM-main/` implements `LCO: LLM-based Constraint Optimization for Safer Agentic LLMs in Real-world Tasks`, not a direct Rt-LRM benchmark implementation.
-- Always verify whether the current task is about the Rt-LRM paper benchmark or the LCO codebase before editing code or running experiments.
+- The current main project is the YUV reversible adversarial attack reproduction selected in `最后确认文件.md`.
+- Target paper: `Efficient and Transferable Reversible Adversarial Attacks Utilizing YUV Color Space`.
+- Target repository: `edu-yinzhaoxia/Efficient-and-Transferable-Reversible-Adversarial-Attacks-Utilizing-YUV-Color-Space`.
+- Target local code directory: `YUV_Reversible_Attack_2025/`.
+- Older Rt-LRM/LCO files and folders are historical candidate materials. Do not use their commands, metrics, or assumptions unless the user explicitly switches back to that project.
 
 ## Tech Stack
 
+- OS: Windows.
+- GPU target: NVIDIA RTX 4060.
 - Language: Python.
-- Prompt composition package: `PromptCode/` installs `procoder`.
-- Output refinement experiments: `output-refinement/`.
-- Policy refinement experiments: `policy-refinement/`.
-- Tool-use simulation framework: modified ToolEmu under `policy-refinement/toolemu/`.
-- Common data formats: JSON for output-refinement results, JSONL for policy-refinement trajectories.
-- LLM backends: OpenAI-compatible APIs, Anthropic, Qwen/DashScope-compatible APIs, Llama/Together-compatible APIs, optional local vLLM.
-- Safety scoring may use Google Perspective API.
+- Core ML framework: PyTorch and torchvision.
+- Image libraries: Pillow, OpenCV, scikit-image, NumPy, matplotlib.
+- Model source: torchvision pretrained image classification models.
+- Default input folder: `ORI_IMG/`.
+- Default output folder: `output/rae/`.
+- Suggested experiment log folder: `runs/`.
 
 ## Environment Rules
 
-- Prefer isolated virtual environments for each subproject.
-- `policy-refinement` pins `openai==0.28.1` and `langchain==0.0.277`; do not upgrade these casually.
-- `PromptCode` must be installed before running `policy-refinement`.
-- Run `policy-refinement` scripts from the `policy-refinement/` directory using `python -m`.
-- Do not hardcode API keys. Use `.env` or process environment variables.
-- Do not commit `.env`, logs, local model weights, large binaries, or generated cache directories.
+- Prefer a project-local virtual environment under `YUV_Reversible_Attack_2025/.venv`.
+- Confirm `python` points to a real Python installation, not only the Microsoft Store launcher.
+- Confirm CUDA with `torch.cuda.is_available()` before GPU experiments.
+- Use the official PyTorch install selector when installing or changing CUDA wheels.
+- Do not commit virtual environments, downloaded model weights, generated RAE images, cache folders, or large datasets.
+- Keep model weights in the standard PyTorch cache unless the user asks for a custom cache location.
 
-## Setup Commands
+## Key Commands
+
+From the project code directory:
 
 ```powershell
-cd D:\大模型论文复现\Rt-LRM-main\PromptCode
-pip install -e .
-
-cd D:\大模型论文复现\Rt-LRM-main\policy-refinement
-pip install -e .
-
-cd D:\大模型论文复现\Rt-LRM-main\output-refinement
-pip install choix openai anthropic numpy matplotlib langchain requests python-dotenv scipy pandas seaborn aiohttp
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+python reversible_attack_OURS.py
 ```
 
-## Test Commands
+Fallback activation-free style:
 
 ```powershell
-cd D:\大模型论文复现\Rt-LRM-main\policy-refinement
-python tests/test_env_setup.py
-
-cd D:\大模型论文复现\Rt-LRM-main\output-refinement
-python tests/test_process_response.py
-python tests/test_benchmark_data.py
+.\.venv\Scripts\python.exe reversible_attack_OURS.py
 ```
 
-## Experiment Commands
+Dependency smoke test:
 
 ```powershell
-cd D:\大模型论文复现\Rt-LRM-main\output-refinement
-python filtering.py --experiment reward_hacking --n_rounds 2 --agent_model gpt-3.5-turbo --judge_model gpt-3.5-turbo --n_judges 1 --seed 0 --agent_idx -1 --method base
-python filtering.py --experiment reward_hacking --n_rounds 2 --agent_model gpt-3.5-turbo --judge_model gpt-3.5-turbo --n_judges 1 --seed 0 --agent_idx -1 --method LCO
-```
-
-```powershell
-cd D:\大模型论文复现\Rt-LRM-main\policy-refinement
-python -m scripts.emulate -inp assets/all_cases.json -atp naive -stp adv_thought --agent-model qwen2.5-72b-instruct --simulator-model gpt-4o -si 0 -tn 3 -v -me 3
-python -m scripts.emulate -inp assets/all_cases.json -atp naive -stp lco_thought --agent-model qwen2.5-72b-instruct --simulator-model gpt-4o -si 0 -tn 3 -v -me 3 -pos 3
+python -c "import torch, torchvision, PIL, cv2, skimage, numpy; print('deps ok')"
 ```
 
 ## Code Style
 
-- Keep variable names, class names, and module names in English.
+- Keep Python names in English.
 - Use `snake_case` for functions and variables.
 - Use `CamelCase` for classes.
-- Keep imports ordered as standard library, third-party packages, local modules.
-- Add comments only when they clarify non-obvious research logic, parsing behavior, or evaluation assumptions.
-- Avoid broad refactors unless required for the current task.
-- Do not rewrite prompt templates without preserving their evaluation intent.
-- Preserve existing CLI argument names unless there is a strong reason to change them.
+- Keep imports grouped as standard library, third-party packages, local modules.
+- Prefer small, focused scripts for evaluation and logging instead of heavily rewriting the original algorithm.
+- Avoid broad refactors of `reversible_attack_OURS.py`, `atk.py`, `embed_utils.py`, or `EnModel.py` before the baseline run is reproduced.
+- Add comments only where they clarify research logic, metric assumptions, or non-obvious image/channel transformations.
 
-## Known Pitfalls
+## Data And Output Conventions
 
-- The repository name suggests Rt-LRM, but the current code implements LCO. Treat this as a major project-scope risk.
-- PowerShell may not have `git` installed; ZIP download may be used instead.
-- Chinese README output may appear garbled in terminals with incompatible encoding; prefer the English README or read files in a UTF-8-aware editor.
-- `policy-refinement` imports expect execution from its project root.
-- `PromptCode` is required by `policy-refinement`; missing editable install causes runtime import failures.
-- vLLM can deadlock when wrapped in thread-pool style execution; keep vLLM inference serialized unless the backend code explicitly supports the concurrency mode.
-- Result directories are hardcoded in several scripts.
-- Output parsing is fragile around quotes, HTML-like tags, refusals, and explanatory text.
-- Automatic safety evaluation can be noisy; use human spot checks for final claims.
-- Model APIs, model names, and provider base URLs can change; verify them before large runs.
+- Input images should be RGB.
+- First-run images should be `299x299` unless the code is updated and tested for other sizes.
+- Image filenames should contain an ImageNet label after an underscore, for example `0001_281.png`.
+- Keep experiment outputs separated by run directory when comparing parameters.
+- Store run commands, environment versions, input image lists, metrics, and notes under `runs/`.
+- Do not mix outputs from different attack settings in the same metrics file.
 
-## Documentation Rules
+## Known Traps
 
-- Long-term rules belong in this file.
-- One-off tasks, current progress, checklists, temporary TODOs, run-specific costs, and final experiment results should go in separate Markdown reports.
-- Do not paste third-party documentation wholesale into this file.
-- Do not store secrets, private URLs, account-specific paths outside the workspace, or temporary API configuration in this file.
-- When adding commands, prefer small smoke-test commands before full experiment commands.
+- The repository README is minimal, so missing setup detail is expected.
+- Windows PowerShell may block `.venv\Scripts\Activate.ps1`; use the activation-free Python path if needed.
+- `git` may be unavailable on a fresh Windows machine; ZIP download is acceptable.
+- GitHub downloads can be unstable; record whether the source came from Git clone or ZIP.
+- First execution may download several torchvision model weights and appear slow.
+- CPU-only PyTorch will run very slowly and is not the intended setup.
+- Integrated models can exceed comfortable 4060 memory; reduce input count, attack steps, or iteration count for smoke tests.
+- RGB/BGR confusion can corrupt metrics when mixing Pillow and OpenCV.
+- File names without the expected underscore label can break label parsing.
+- Saving intermediate images in lossy formats can break exact recovery checks.
+
+## Testing Protocol
+
+- Always run dependency and CUDA checks before the first attack run.
+- Start with one image, then scale to 10 images, then larger batches.
+- Record every parameter change before comparing results.
+- Treat single-image success as a smoke test, not a paper-level reproduction.
+- For every reported result, keep the command, input list, output path, model settings, and metrics.
+- Verify generated images can be opened before computing metrics.
+- Verify restoration with pixel-level comparison when testing error-free recovery.
+
+## Security Boundary
+
+- This project is for local academic reproduction only.
+- Do not use generated adversarial examples against third-party, online, commercial, or unauthorized recognition systems.
+- Do not add code that automates attacks against external services.
+- Do not store credentials or private data in the repository.
+

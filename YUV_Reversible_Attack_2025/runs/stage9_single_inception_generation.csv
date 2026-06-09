@@ -1,0 +1,11 @@
+﻿generator,input_filename,label,output_image,success_on_inception,final_pred,max_iteration_used,elapsed_s,output_size_bytes
+single_inception_y_uv,0001_321.png,321,stage9_transferability\single_inception_y_uv\output\0001_321.png,1,325,2,3.70,192129
+single_inception_y_uv,0002_847.png,847,stage9_transferability\single_inception_y_uv\output\0002_847.png,1,408,0,1.11,178390
+single_inception_y_uv,0003_446.png,446,stage9_transferability\single_inception_y_uv\output\0003_446.png,1,748,0,0.84,90447
+single_inception_y_uv,0004_400.png,400,stage9_transferability\single_inception_y_uv\output\0004_400.png,1,577,0,0.89,163700
+single_inception_y_uv,0005_647.png,647,stage9_transferability\single_inception_y_uv\output\0005_647.png,1,438,1,1.76,169070
+single_inception_y_uv,0006_295.png,295,stage9_transferability\single_inception_y_uv\output\0006_295.png,1,294,0,1.13,216382
+single_inception_y_uv,0007_171.png,171,stage9_transferability\single_inception_y_uv\output\0007_171.png,1,268,0,0.90,155603
+single_inception_y_uv,0008_682.png,682,stage9_transferability\single_inception_y_uv\output\0008_682.png,1,442,0,0.87,146008
+single_inception_y_uv,0009_112.png,112,stage9_transferability\single_inception_y_uv\output\0009_112.png,1,186,0,0.86,156600
+single_inception_y_uv,0010_111.png,111,stage9_transferability\single_inception_y_uv\output\0010_111.png,1,604,0,1.11,160741

@@ -1,0 +1,3 @@
+﻿item,version,weights,preprocess
+torch,2.5.1+cu121,N/A,"Resize((299,299)) + ToTensor(), no normalization, code-consistent"
+torchvision,0.20.1+cu121,"pretrained=True, torchvision legacy IMAGENET1K equivalent","Resize((299,299)) + ToTensor(), no normalization, code-consistent"
