@@ -1,0 +1,33 @@
+﻿case,experiment,carrier,status,compressed_bit_length,embedded_payload_bits,round_count,thresholds,carrier_recovery_exact,changed_u_pixels,changed_v_pixels,changed_uv_pixels,uv_linf,uv_l2,uv_psnr,uv_ssim,note
+synthetic_00,uv_default,U+V stacked,ok,41977,41977,1,6,1,86959,86952,173911,6.000000,2234.4362,33.6712,0.920409,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,u_only,U only,ok,41977,41977,1,11,1,86999,0,86999,11.000000,2569.4383,32.4578,0.892695,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,v_only,V only,ok,41977,41977,1,11,1,0,86844,86844,11.000000,2565.5988,32.4708,0.893011,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,uv_25_75,U/V split 25/75,ok,41977,41977,2,6|11,1,86968,86947,173915,11.000000,3013.9988,31.0717,0.872754,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,uv_75_25,U/V split 75/25,ok,41977,41977,2,11|6,1,87023,86892,173915,11.000000,3016.6737,31.0640,0.872555,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,fixed_T1,"U+V stacked, fixed T=1",capacity_failed,41977,0,0,,0,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,adaptive_T_cost,"U+V stacked, cost search",ok,41977,41977,1,6,1,86959,86952,173911,6.000000,2234.4362,33.6712,0.920409,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_00,sidecar_external_payload,UV unchanged; payload stored in sidecar,ok_external_payload,41977,0,0,,1,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,uv_default,U+V stacked,ok,42498,42498,1,6,1,86877,86826,173703,6.000000,2232.0338,33.6805,0.920428,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,u_only,U only,ok,42498,42498,1,11,1,86890,0,86890,11.000000,2563.1539,32.4790,0.893013,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,v_only,V only,ok,42498,42498,1,11,1,0,86986,86986,11.000000,2559.4568,32.4916,0.893182,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,uv_25_75,U/V split 25/75,ok,42498,42498,2,6|11,1,86886,86949,173835,11.000000,3007.9003,31.0893,0.872940,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,uv_75_25,U/V split 75/25,ok,42498,42498,2,11|6,1,86887,86868,173755,11.000000,3010.2179,31.0826,0.872816,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,fixed_T1,"U+V stacked, fixed T=1",capacity_failed,42498,0,0,,0,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,adaptive_T_cost,"U+V stacked, cost search",ok,42498,42498,1,6,1,86877,86826,173703,6.000000,2232.0338,33.6805,0.920428,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_01,sidecar_external_payload,UV unchanged; payload stored in sidecar,ok_external_payload,42498,0,0,,1,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,uv_default,U+V stacked,ok,42169,42169,1,6,1,86789,86858,173647,6.000000,2232.0242,33.6805,0.920600,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,u_only,U only,ok,42169,42169,1,11,1,87035,0,87035,11.000000,2564.3215,32.4751,0.893109,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,v_only,V only,ok,42169,42169,1,11,1,0,86851,86851,11.000000,2560.2291,32.4890,0.893396,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,uv_25_75,U/V split 25/75,ok,42169,42169,2,6|11,1,86808,86845,173653,11.000000,3008.2915,31.0881,0.873168,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,uv_75_25,U/V split 75/25,ok,42169,42169,2,11|6,1,86993,86773,173766,11.000000,3010.2357,31.0825,0.873047,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,fixed_T1,"U+V stacked, fixed T=1",capacity_failed,42169,0,0,,0,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,adaptive_T_cost,"U+V stacked, cost search",ok,42169,42169,1,6,1,86789,86858,173647,6.000000,2232.0242,33.6805,0.920600,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+synthetic_02,sidecar_external_payload,UV unchanged; payload stored in sidecar,ok_external_payload,42169,0,0,,1,0,0,0,0.000000,0.0000,inf,1.000000,synthetic carrier ablation; real-image confirmation requires ORI_IMG
+SUMMARY,adaptive_T_cost,"U+V stacked, cost search",3/3 ok,avg=42214.7,avg=42214.7,avg=1.00,varies,1,avg=86875.0,avg=86878.7,avg=173753.7,avg=6.0000,avg=2232.83,avg=33.6774,avg=0.920479,summary across synthetic seeds
+SUMMARY,fixed_T1,"U+V stacked, fixed T=1",0/3 ok,avg=42214.7,avg=0.0,avg=0.00,varies,0,avg=0.0,avg=0.0,avg=0.0,avg=0.0000,avg=0.00,avg=inf,avg=NA,summary across synthetic seeds
+SUMMARY,sidecar_external_payload,UV unchanged; payload stored in sidecar,3/3 ok,avg=42214.7,avg=0.0,avg=0.00,varies,1,avg=0.0,avg=0.0,avg=0.0,avg=0.0000,avg=0.00,avg=inf,avg=1.000000,summary across synthetic seeds
+SUMMARY,u_only,U only,3/3 ok,avg=42214.7,avg=42214.7,avg=1.00,varies,1,avg=86974.7,avg=0.0,avg=86974.7,avg=11.0000,avg=2565.64,avg=32.4706,avg=0.892939,summary across synthetic seeds
+SUMMARY,uv_25_75,U/V split 25/75,3/3 ok,avg=42214.7,avg=42214.7,avg=2.00,varies,1,avg=86887.3,avg=86913.7,avg=173801.0,avg=11.0000,avg=3010.06,avg=31.0830,avg=0.872954,summary across synthetic seeds
+SUMMARY,uv_75_25,U/V split 75/25,3/3 ok,avg=42214.7,avg=42214.7,avg=2.00,varies,1,avg=86967.7,avg=86844.3,avg=173812.0,avg=11.0000,avg=3012.38,avg=31.0764,avg=0.872806,summary across synthetic seeds
+SUMMARY,uv_default,U+V stacked,3/3 ok,avg=42214.7,avg=42214.7,avg=1.00,varies,1,avg=86875.0,avg=86878.7,avg=173753.7,avg=6.0000,avg=2232.83,avg=33.6774,avg=0.920479,summary across synthetic seeds
+SUMMARY,v_only,V only,3/3 ok,avg=42214.7,avg=42214.7,avg=1.00,varies,1,avg=0.0,avg=86893.7,avg=86893.7,avg=11.0000,avg=2561.76,avg=32.4838,avg=0.893196,summary across synthetic seeds

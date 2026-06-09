@@ -1,0 +1,4 @@
+﻿case,compressed_bit_length,round_count,changed_u_pixels,changed_v_pixels,changed_uv_pixels,u_changed_ratio,v_changed_ratio,uv_linf,uv_l2,uv_psnr,sidecar_externalized_fields,interpretation
+synthetic_00,41976,1,86912,86839,173751,0.972159,0.971343,6.000000,2234.3639,33.6714,"T_flag,dic,compressed_bit_length,round_payload_len",sidecar closes recovery metadata gap; payload bits are still embedded in UV in this prototype
+synthetic_01,42497,1,86820,86766,173586,0.971130,0.970526,6.000000,2232.4520,33.6789,"T_flag,dic,compressed_bit_length,round_payload_len",sidecar closes recovery metadata gap; payload bits are still embedded in UV in this prototype
+synthetic_02,42169,1,86863,86795,173658,0.971611,0.970850,6.000000,2232.3523,33.6793,"T_flag,dic,compressed_bit_length,round_payload_len",sidecar closes recovery metadata gap; payload bits are still embedded in UV in this prototype

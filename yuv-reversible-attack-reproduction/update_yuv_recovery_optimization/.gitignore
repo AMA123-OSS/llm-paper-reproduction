@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+results/*.npy
+results/*.png
+results/route_c_outputs/
