@@ -8,12 +8,8 @@ This repository is the cleaned reproduction package for the paper:
 
 - `yuv-reversible-attack-reproduction/`: core code, evaluation scripts, and curated experiment results.
 - `yuv-reversible-attack-reproduction/runs/`: staged reproduction records, CSV metrics, and final summaries.
-- `给老师的论文学习报告_YUV可逆对抗攻击.md`: teacher-facing learning report.
-- `论文PDF详细摄入解析_YUV可逆对抗攻击.md`: detailed PDF ingestion and method analysis.
-- `Paper信息_最终复盘与改进建议.md`: What/How/Why/Pros/Cons summary and improvement plan.
 - `项目分阶段执行计划与测试.md`: phased execution and testing checklist.
 - `架构概览.md`: code architecture overview.
-- `agent.md`: stable project rules for coding agents.
 
 ## What Is Preserved
 
@@ -22,7 +18,7 @@ This repository is the cleaned reproduction package for the paper:
 - Y/UV ablation results.
 - Transferability experiment results.
 - Recovery-feasibility check results.
-- Final analysis reports and improvement plan.
+- Architecture overview and phased execution/testing plan.
 
 ## What Is Not Committed
 
