@@ -1,0 +1,81 @@
+﻿generator,generator_desc,test_model,relation,input_filename,label,original_pred,original_correct,adv_pred,attack_success_vs_label,changed_from_original,output_image
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0001_321.png,321,321,1,325,1,1,stage9_transferability\single_inception_y_uv\output\0001_321.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0002_847.png,847,847,1,408,1,1,stage9_transferability\single_inception_y_uv\output\0002_847.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0003_446.png,446,446,1,748,1,1,stage9_transferability\single_inception_y_uv\output\0003_446.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0004_400.png,400,400,1,577,1,1,stage9_transferability\single_inception_y_uv\output\0004_400.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0005_647.png,647,647,1,438,1,1,stage9_transferability\single_inception_y_uv\output\0005_647.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0006_295.png,295,295,1,294,1,1,stage9_transferability\single_inception_y_uv\output\0006_295.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0007_171.png,171,171,1,268,1,1,stage9_transferability\single_inception_y_uv\output\0007_171.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0008_682.png,682,682,1,442,1,1,stage9_transferability\single_inception_y_uv\output\0008_682.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0009_112.png,112,112,1,186,1,1,stage9_transferability\single_inception_y_uv\output\0009_112.png
+single_inception_y_uv,Y+UV generated with single Inception v3,inception_v3,white_box,0010_111.png,111,111,1,604,1,1,stage9_transferability\single_inception_y_uv\output\0010_111.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0001_321.png,321,321,1,325,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0001_321.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0002_847.png,847,847,1,408,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0002_847.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0003_446.png,446,446,1,748,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0003_446.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0004_400.png,400,400,1,887,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0004_400.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0005_647.png,647,647,1,438,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0005_647.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0006_295.png,295,295,1,294,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0006_295.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0007_171.png,171,171,1,268,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0007_171.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0008_682.png,682,682,1,442,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0008_682.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0009_112.png,112,112,1,186,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0009_112.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",inception_v3,ensemble_member,0010_111.png,111,111,1,725,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0010_111.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0001_321.png,321,321,1,793,1,1,stage9_transferability\single_inception_y_uv\output\0001_321.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0002_847.png,847,847,1,847,0,0,stage9_transferability\single_inception_y_uv\output\0002_847.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0003_446.png,446,549,0,549,1,0,stage9_transferability\single_inception_y_uv\output\0003_446.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0004_400.png,400,887,0,501,1,1,stage9_transferability\single_inception_y_uv\output\0004_400.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0005_647.png,647,647,1,647,0,0,stage9_transferability\single_inception_y_uv\output\0005_647.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0006_295.png,295,295,1,297,1,1,stage9_transferability\single_inception_y_uv\output\0006_295.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0007_171.png,171,171,1,171,0,0,stage9_transferability\single_inception_y_uv\output\0007_171.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0008_682.png,682,682,1,682,0,0,stage9_transferability\single_inception_y_uv\output\0008_682.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0009_112.png,112,112,1,112,0,0,stage9_transferability\single_inception_y_uv\output\0009_112.png
+single_inception_y_uv,Y+UV generated with single Inception v3,resnet50,transfer_black_box,0010_111.png,111,111,1,111,0,0,stage9_transferability\single_inception_y_uv\output\0010_111.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0001_321.png,321,321,1,322,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0001_321.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0002_847.png,847,847,1,847,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0002_847.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0003_446.png,446,549,0,549,1,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0003_446.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0004_400.png,400,887,0,501,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0004_400.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0005_647.png,647,647,1,647,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0005_647.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0006_295.png,295,295,1,297,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0006_295.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0007_171.png,171,171,1,171,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0007_171.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0008_682.png,682,682,1,682,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0008_682.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0009_112.png,112,112,1,112,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0009_112.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",resnet50,held_out_black_box,0010_111.png,111,111,1,111,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0010_111.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0001_321.png,321,321,1,321,0,0,stage9_transferability\single_inception_y_uv\output\0001_321.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0002_847.png,847,847,1,847,0,0,stage9_transferability\single_inception_y_uv\output\0002_847.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0003_446.png,446,446,1,446,0,0,stage9_transferability\single_inception_y_uv\output\0003_446.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0004_400.png,400,400,1,400,0,0,stage9_transferability\single_inception_y_uv\output\0004_400.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0005_647.png,647,647,1,647,0,0,stage9_transferability\single_inception_y_uv\output\0005_647.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0006_295.png,295,295,1,295,0,0,stage9_transferability\single_inception_y_uv\output\0006_295.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0007_171.png,171,171,1,171,0,0,stage9_transferability\single_inception_y_uv\output\0007_171.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0008_682.png,682,682,1,682,0,0,stage9_transferability\single_inception_y_uv\output\0008_682.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0009_112.png,112,112,1,112,0,0,stage9_transferability\single_inception_y_uv\output\0009_112.png
+single_inception_y_uv,Y+UV generated with single Inception v3,densenet161,transfer_black_box,0010_111.png,111,111,1,111,0,0,stage9_transferability\single_inception_y_uv\output\0010_111.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0001_321.png,321,321,1,323,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0001_321.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0002_847.png,847,847,1,847,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0002_847.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0003_446.png,446,446,1,767,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0003_446.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0004_400.png,400,400,1,399,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0004_400.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0005_647.png,647,647,1,720,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0005_647.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0006_295.png,295,295,1,101,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0006_295.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0007_171.png,171,171,1,178,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0007_171.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0008_682.png,682,682,1,442,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0008_682.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0009_112.png,112,112,1,285,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0009_112.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",densenet161,ensemble_member,0010_111.png,111,111,1,688,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0010_111.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0001_321.png,321,321,1,321,0,0,stage9_transferability\single_inception_y_uv\output\0001_321.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0002_847.png,847,847,1,847,0,0,stage9_transferability\single_inception_y_uv\output\0002_847.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0003_446.png,446,446,1,446,0,0,stage9_transferability\single_inception_y_uv\output\0003_446.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0004_400.png,400,400,1,400,0,0,stage9_transferability\single_inception_y_uv\output\0004_400.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0005_647.png,647,647,1,647,0,0,stage9_transferability\single_inception_y_uv\output\0005_647.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0006_295.png,295,295,1,295,0,0,stage9_transferability\single_inception_y_uv\output\0006_295.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0007_171.png,171,171,1,171,0,0,stage9_transferability\single_inception_y_uv\output\0007_171.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0008_682.png,682,682,1,682,0,0,stage9_transferability\single_inception_y_uv\output\0008_682.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0009_112.png,112,112,1,112,0,0,stage9_transferability\single_inception_y_uv\output\0009_112.png
+single_inception_y_uv,Y+UV generated with single Inception v3,googlenet,transfer_black_box,0010_111.png,111,111,1,111,0,0,stage9_transferability\single_inception_y_uv\output\0010_111.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0001_321.png,321,321,1,321,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0001_321.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0002_847.png,847,847,1,847,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0002_847.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0003_446.png,446,446,1,549,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0003_446.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0004_400.png,400,400,1,645,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0004_400.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0005_647.png,647,647,1,572,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0005_647.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0006_295.png,295,295,1,295,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0006_295.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0007_171.png,171,171,1,171,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0007_171.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0008_682.png,682,682,1,442,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0008_682.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0009_112.png,112,112,1,184,1,1,stage9_transferability\ensemble_y_uv_from_stage8\output\0009_112.png
+ensemble_y_uv,"Y+UV generated with EnModel, copied from stage8",googlenet,ensemble_member,0010_111.png,111,111,1,111,0,0,stage9_transferability\ensemble_y_uv_from_stage8\output\0010_111.png

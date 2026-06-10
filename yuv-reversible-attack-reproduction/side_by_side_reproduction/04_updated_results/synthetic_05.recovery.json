@@ -1,0 +1,27 @@
+{
+  "image_size": 299,
+  "uv_stacked_shape": [
+    598,
+    299
+  ],
+  "compressed_bit_length": 42177,
+  "dic": {
+    "0": 83672,
+    "1": 1477,
+    "2": 1471,
+    "-2": 1371,
+    "!": 1,
+    "-1": 1410
+  },
+  "rounds": [
+    {
+      "T": 11,
+      "payload_len": 42177
+    }
+  ],
+  "err_shape": [
+    89401,
+    1
+  ],
+  "recovery_order": "reverse rounds; PE_decode recovers previous UV carrier and extracts length-prefixed bits"
+}

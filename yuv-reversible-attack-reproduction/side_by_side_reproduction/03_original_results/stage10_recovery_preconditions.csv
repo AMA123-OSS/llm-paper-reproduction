@@ -1,0 +1,7 @@
+﻿item,status,evidence
+PE_decode_function,present,"embed_utils.py contains PE_decode, which can extract embedded bits if T is known."
+Arithmetic_decode_function,present,"helpers.py contains Arithmetic_decode, but decoding needs the original frequency dictionary."
+T_flag_persisted,missing,reversible_attack_OURS.py saves only PNG RAE; embed_main keeps T_flag local and does not return it.
+arithmetic_dictionary_persisted,missing,compressfun returns only code from embed_main path; dic is discarded and not saved with RAE.
+compressed_bit_length_persisted,missing,"embed_main prepends per-round length bits inside UV payload, but the arithmetic dictionary and T sequence are still unavailable."
+standalone_recovery_entry,missing,No script or function is called by reversible_attack_OURS.py to reconstruct RGB original from saved PNG RAE.

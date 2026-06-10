@@ -1,0 +1,11 @@
+﻿case,sidecar,round_count,compressed_bit_length,recovery_max_abs_error,recovery_error_pixels,recovery_exact
+synthetic_00,results\synthetic_00.recovery.json,1,41976,0,0,1
+synthetic_01,results\synthetic_01.recovery.json,1,42497,0,0,1
+synthetic_02,results\synthetic_02.recovery.json,1,42169,0,0,1
+synthetic_03,results\synthetic_03.recovery.json,1,42042,0,0,1
+synthetic_04,results\synthetic_04.recovery.json,1,42103,0,0,1
+synthetic_05,results\synthetic_05.recovery.json,1,42177,0,0,1
+synthetic_06,results\synthetic_06.recovery.json,1,41538,0,0,1
+synthetic_07,results\synthetic_07.recovery.json,1,41752,0,0,1
+synthetic_08,results\synthetic_08.recovery.json,1,42220,0,0,1
+synthetic_09,results\synthetic_09.recovery.json,1,42342,0,0,1

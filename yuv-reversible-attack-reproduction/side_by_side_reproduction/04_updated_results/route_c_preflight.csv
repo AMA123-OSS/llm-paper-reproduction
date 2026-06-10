@@ -1,0 +1,6 @@
+﻿item,status,value,observed,required_action
+ORI_IMG,blocked,D:\大模型论文复现\yuv-reversible-attack-reproduction\ORI_IMG,0 png images,"restore at least 10 labeled ImageNet-style PNG files, 100 for full confidence interval run"
+python,ok,C:\Users\HP\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe,3.12.13,none
+torch,blocked,False,missing,install torch matching CUDA 4060 environment
+torchvision,blocked,False,missing,install torchvision model zoo support
+cuda,warning,unknown,cuda availability checked without loading model weights,GPU is recommended for 10/100 image transferability runs

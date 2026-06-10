@@ -1,0 +1,9 @@
+﻿generator,test_model,relation,total_images,outputs,original_correct_count,attack_success_count_vs_label,attack_success_rate_vs_label,conditional_success_count,conditional_success_rate_on_original_correct,changed_from_original_count,changed_from_original_rate
+ensemble_y_uv,densenet161,ensemble_member,10,10,10,9,0.900000,9,0.900000,9,0.900000
+ensemble_y_uv,googlenet,ensemble_member,10,10,10,5,0.500000,5,0.500000,5,0.500000
+ensemble_y_uv,inception_v3,ensemble_member,10,10,10,10,1.000000,10,1.000000,10,1.000000
+ensemble_y_uv,resnet50,held_out_black_box,10,10,8,4,0.400000,2,0.250000,3,0.300000
+single_inception_y_uv,densenet161,transfer_black_box,10,10,10,0,0.000000,0,0.000000,0,0.000000
+single_inception_y_uv,googlenet,transfer_black_box,10,10,10,0,0.000000,0,0.000000,0,0.000000
+single_inception_y_uv,inception_v3,white_box,10,10,10,10,1.000000,10,1.000000,10,1.000000
+single_inception_y_uv,resnet50,transfer_black_box,10,10,8,4,0.400000,2,0.250000,3,0.300000

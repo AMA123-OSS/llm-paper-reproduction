@@ -1,0 +1,9 @@
+﻿experiment,carrier,payload_strategy,expected_effect
+uv_default,U+V stacked,"all compressed Y-diff bits embedded in UV, metadata saved as sidecar",baseline for updated recovery-capable method
+u_only,U only,embed into U channel only; V unchanged,tests whether concentrating chroma changes is less visible but may exceed capacity
+v_only,V only,embed into V channel only; U unchanged,checks asymmetric sensitivity between U and V
+uv_25_75,U/V split,"25% payload in U, 75% payload in V",searches lower-distortion chroma allocation
+uv_75_25,U/V split,"75% payload in U, 25% payload in V",paired allocation comparison
+fixed_T_small,U+V stacked,fixed low T if capacity allows,lower local distortion but possible capacity failure
+adaptive_T_cost,U+V stacked,choose lowest T that satisfies capacity and minimizes estimated distortion,main candidate for PSNR/SSIM improvement
+sidecar_external_payload,sidecar + optional UV checksum,move more recovery data outside UV into sidecar,upper-bound test for quality; weakens pure self-contained RAE assumption

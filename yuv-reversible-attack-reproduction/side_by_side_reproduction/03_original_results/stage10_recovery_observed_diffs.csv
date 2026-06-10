@@ -1,0 +1,31 @@
+﻿group,input_filename,output_filename,output_exists,max_abs_diff_original_vs_rae,different_pixels_original_vs_rae,different_values_original_vs_rae,recovered_image_exists,recovery_exact,recovery_max_abs_error,recovery_error_pixels,note
+stage7_steps4_iter5_y_uv,0001_321.png,0001_321.png,True,22,87519,219997,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0002_847.png,0002_847.png,True,14,83359,197677,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0003_446.png,0003_446.png,True,7,54483,108524,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0004_400.png,0004_400.png,True,5,84739,191295,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0005_647.png,0005_647.png,True,7,87931,205303,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0006_295.png,0006_295.png,True,14,89032,241021,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0007_171.png,0007_171.png,True,5,76519,161520,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0008_682.png,0008_682.png,True,5,70715,156229,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0009_112.png,0009_112.png,True,5,78138,167659,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage7_steps4_iter5_y_uv,0010_111.png,0010_111.png,True,14,87741,210330,False,NA,NA,NA,"Y+UV output generated in stage7 with steps=4,max_iteration=5"
+stage8_y_uv_embed,0001_321.png,0001_321.png,True,22,87565,219868,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0002_847.png,0002_847.png,True,14,83287,197317,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0003_446.png,0003_446.png,True,7,54483,108524,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0004_400.png,0004_400.png,True,5,84739,191295,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0005_647.png,0005_647.png,True,7,87931,205303,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0006_295.png,0006_295.png,True,14,89034,241136,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0007_171.png,0007_171.png,True,5,76705,161856,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0008_682.png,0008_682.png,True,5,70659,155670,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0009_112.png,0009_112.png,True,5,78192,167980,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage8_y_uv_embed,0010_111.png,0010_111.png,True,14,87743,210479,False,NA,NA,NA,Y+UV output generated in stage8 ablation
+stage9_single_inception_y_uv,0001_321.png,0001_321.png,True,18,87549,218413,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0002_847.png,0002_847.png,True,14,83317,197614,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0003_446.png,0003_446.png,True,5,54504,106013,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0004_400.png,0004_400.png,True,5,84724,191035,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0005_647.png,0005_647.png,True,7,87837,205253,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0006_295.png,0006_295.png,True,14,89035,241206,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0007_171.png,0007_171.png,True,5,76494,160912,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0008_682.png,0008_682.png,True,5,70530,155645,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0009_112.png,0009_112.png,True,5,78221,167633,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception
+stage9_single_inception_y_uv,0010_111.png,0010_111.png,True,14,87779,210581,False,NA,NA,NA,Y+UV output generated in stage9 with single Inception

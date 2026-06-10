@@ -1,0 +1,4 @@
+﻿method,display_name,total_images,outputs,success_count,success_rate,avg_ssim,avg_psnr,avg_l2,avg_linf,avg_elapsed_s,total_image_elapsed_s,steps,max_iteration,eps,alpha,seed
+rgb_mi_fgsm,RGB MI-FGSM baseline,10,10,10,1.000000,0.975990,42.4469,4.0510,0.009412,0.60,6.02,4,5,0.007843,0.003922,2022
+y_only,Y-channel only,10,10,10,1.000000,0.991483,46.5931,2.5893,0.016471,0.80,8.04,4,5,0.007843,0.003922,2022
+y_uv_embed,Y-channel + UV embedding,10,10,10,1.000000,0.977176,41.6994,4.7156,0.038432,2.07,20.73,4,5,0.007843,0.003922,2022
