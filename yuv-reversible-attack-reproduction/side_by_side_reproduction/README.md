@@ -66,6 +66,7 @@
 - 路线A：10个合成YUV样本全部满足`recovery_max_abs_error=0`、`recovery_error_pixels=0`，证明sidecar补齐元数据后可逆恢复闭环成立。
 - 路线B：默认`U+V stacked`和`adaptive_T_cost`在合成样本上平均`UV PSNR=33.6774`、`UV SSIM=0.920479`；U-only/V-only因容量压力需要更高阈值，反而失真更大。
 - 路线C：生成112行扩展迁移性实验矩阵，覆盖single、full EnModel、leave-one-out生成方式，以及VGG16、MobileNetV3、EfficientNet、ConvNeXt、ViT等held-out模型。
+- 规范报告：`04_updated_results/改进实验规范报告.md` 按“实验目标和结论、实验设计、实验数据、数据解析”说明每组改进实验为什么能支撑对应结论。
 
 ## 对照阅读建议
 

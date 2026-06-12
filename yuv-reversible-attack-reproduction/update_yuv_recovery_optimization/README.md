@@ -19,6 +19,7 @@
 - `route_c_transferability_preflight.py`：路线 C 的环境预检和 10/100 图实验矩阵生成。
 - `route_c_transferability_experiment.py`：恢复 `ORI_IMG` 和深度学习环境后可执行的真实迁移性实验脚本。
 - `results/`：轻量 CSV/JSON 结果。`.npy` 和输出图片被本目录 `.gitignore` 忽略，避免上传大文件。
+- `改进实验规范报告.md`：按“实验目标和结论、实验设计、实验数据、数据解析”整理的规范实验报告。
 
 ## 当前可复现结果
 
