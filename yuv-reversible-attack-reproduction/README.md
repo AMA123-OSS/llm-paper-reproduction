@@ -10,6 +10,7 @@ This directory contains the core code and curated experiment records for reprodu
 - `atk.py`, `EnModel.py`, `embed_utils.py`, `utils.py`: core attack, ensemble, embedding, and color conversion code.
 - `pytorch_grad_cam/`: local CAM implementation used by the original code.
 - `runs/`: reproduction scripts, staged notes, CSV metrics, and final summaries.
+- `代码归类与功能说明.md`: Chinese guide explaining each uploaded code file's role and function.
 
 ## Reproduction Notes
 
